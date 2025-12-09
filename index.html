@@ -110,36 +110,34 @@
         </form>
 
         <script>
-            const form = document.querySelector('form');
-            const declineRadio = document.querySelector('input[value="decline"]');
-            const popup = document.getElementById('declinePopup');
-            const cancelDecline = document.getElementById('cancelDecline');
-            const confirmDecline = document.getElementById('confirmDecline');
+        const form = document.querySelector('form');
+        const acceptRadio = document.querySelector('input[value="accept"]');
+        const declineRadio = document.querySelector('input[value="decline"]');
+        const popup = document.getElementById('declinePopup');
+        const cancelDecline = document.getElementById('cancelDecline');
+        
+        form.addEventListener('submit', (e) => {
 
-            let declineChosen = false;
+            // If decline is selected → show popup
+            if (declineRadio.checked) {
+                e.preventDefault();
+                popup.style.display = 'flex';
+                return;
+            }
 
-            declineRadio.addEventListener('change', () => {
-                declineChosen = true;
-            });
+            // If accept is selected → redirect
+            if (acceptRadio.checked) {
+                e.preventDefault(); 
+                window.location.href = "https://careers.dwtc.com/en/sites/CX_2001"; // <-- your redirect URL
+            }
+        });
 
-            form.addEventListener('submit', (e) => {
-                if (declineChosen) {
-                    e.preventDefault();
-                    popup.style.display = 'flex';
-                }
-            });
-
-            cancelDecline.addEventListener('click', () => {
-                popup.style.display = 'none';
-                declineRadio.checked = false;
-                declineChosen = false;
-            });
-
-            confirmDecline.addEventListener('click', () => {
-                popup.style.display = 'none';
-                form.submit();
-            });
-        </script>
+        // Cancel decline popup
+        cancelDecline.addEventListener('click', () => {
+            popup.style.display = 'none';
+            declineRadio.checked = false;
+        });
+    </script>
 
         
     </div>

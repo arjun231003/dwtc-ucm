@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+(function () {
+	var s = document.createElement('script');
+	s.src = 'https://cdn-prod.eu.securiti.ai/consent/cookie-consent-sdk-loader.js';
+	s.setAttribute('data-tenant-uuid', '7b76e5b1-72e9-4d12-a6fc-afb59ec34d9b');
+	s.setAttribute('data-domain-uuid', '0adf05cd-e1f6-4f31-897c-136b69ab4421');
+	s.setAttribute('data-backend-url', 'https://app.eu.securiti.ai');
+	s.setAttribute('data-skip-css', 'false');
+	s.defer = true;
+	var parent_node = document.head || document.body;
+	parent_node.appendChild(s);
+})()
+</script>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,6 +137,7 @@
             </div>
         </form>
 
+        <iframe src="https://privacy-central.eu.securiti.ai/notice-embed/93b6e3ae-0d35-46ca-9c73-4eeba549d7cd" style="border: none;width: 100%;height: 800px;"></iframe>
         <script>
         const form = document.querySelector('form');
         const acceptRadio = document.querySelector('input[value="accept"]');
